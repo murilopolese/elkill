@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "elKill",
+    "version": "1.0",
+    "homepage_url": "http://www.github.com/murilopolese/elkill",
+    "background": {"scripts": ["elKill.js"]},
+    "permissions": [
+        "tabs",
+        "<all_urls>"
+    ],
+    "browser_action": {
+        "name": "elKill",
+        "default_icon": {
+            "19": "icon19.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["jquery.js", "function.js"],
+            "css": ["elKill.css"]
+        }
+    ]
+}
