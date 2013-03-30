@@ -5,7 +5,7 @@ Instructions:
 
 Click on the extension icon to start killing
 
-One click select the element
+One click selects the element
 
 Double click (and Machete) kills
 
