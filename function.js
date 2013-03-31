@@ -2,18 +2,23 @@ var initialized = false;
 function init() {
     initialized = !initialized;
     if (initialized) {
-        $("body *").bind("click", function() {
-            $(".elkillhover").toggleClass("elkillhover");
-            $(this).toggleClass("elkillhover");
-            return false;
-        });
-        $("body *").bind("dblclick", function() {
-            $(this).remove();
+        $("body").on("mouseover", mouseOver);
+        $("body").on("mouseout", mouseOut);
+        $("body").on("click", function(e) {
+            $(e.target).remove();
             return false;
         });
     } else {
         $(".elkillhover").toggleClass("elkillhover");
-        $("body *").unbind("click");
-        $("body *").unbind("dblclick");
+        $("body").off("click mouseover mouseout");
     }
+}
+
+function mouseOver(e) {
+    $(e.target).addClass("elkillhover");
+    e.stopPropagation();
+}
+function mouseOut(e) {
+    $(e.target).removeClass("elkillhover");
+    e.stopPropagation();
 }
